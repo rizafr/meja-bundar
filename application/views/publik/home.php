@@ -119,26 +119,15 @@
                 <div class="wrapper">
                 <h3>Latest Work</h3>
                 </div>
-                <div class="portfolio-list">
-                <a href="<?php echo base_url(); ?>publik/portofolio">
-                    <img style= "background-image: url('<?php echo base_url(); ?>assets/img/img.jpg')" alt="" class="hover-shadow">
-                </a>
-                </div>
-                <div class="portfolio-list">
-                    <img src="<?php echo base_url(); ?>assets/img/img.jpg" alt="img" class="hover-shadow">
-                </div>
-                <div class="portfolio-list">
-                    <img src="<?php echo base_url(); ?>assets/img/img.jpg" alt="img" class="hover-shadow"> 
-                </div>
-                <div class="portfolio-list">
-                    <img src="<?php echo base_url(); ?>assets/img/img.jpg" alt="img" class="hover-shadow"> 
-                </div>
-                <div class="portfolio-list">
-                    <img src="<?php echo base_url(); ?>assets/img/img.jpg" alt="img" class="hover-shadow"> 
-                </div>
-                <div class="portfolio-list">
-                    <img src="<?php echo base_url(); ?>assets/img/img.jpg" alt="img" class="hover-shadow"> 
-                </div>
+                <?php $portfolioList = $this->db->query("SELECT portfolioId, pictureUrl FROM portfolioItems  group by portfolioId order by portfolioId DESC")->result();
+                    foreach ($portfolioList as $key => $value) :
+                ?>
+                    <div class="portfolio-list">
+                    <a href="<?php echo base_url(); ?>publik/portofolio/<?= $value->portfolioId ?>">
+                        <img style= "background-image: url('<?= base_url() . $value->pictureUrl ?>')" alt="" class="hover-shadow">
+                    </a>
+                    </div>
+                <?php endforeach;?>
                 <div class="clearfix">
                 </div>
             </div>

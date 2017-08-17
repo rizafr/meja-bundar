@@ -36,19 +36,7 @@
     <script src="<?php echo base_url(); ?>aset/js/bootstrap.js"></script>
     <script src="<?php echo base_url(); ?>aset/js/bootswatch.js"></script>
    <body style="">
-		<!--<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-			<div class="navbar-header">
-			<span class="navbar-brand judul">.:: SIAPRA (Sistem Informasi Administrasi dan Penanganan Perkara) ::.</span>
-			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-			</button>
-			</div>
-			
-			</div>
-		</div>-->
+		
 		
 		<?php 
 			$q_instansi	= $this->db->query("SELECT * FROM tr_instansi LIMIT 1")->row();

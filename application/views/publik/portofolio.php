@@ -46,7 +46,7 @@
             <div class="column content-right">
             <div class="content-box">
                 <h3>Time</h3>
-                <p><?= $portofolio->publishedTime;?></p>
+                <p><?= date("d M Y", strtotime($portofolio->createdTime));?></p>
             </div>
             
             <div class="content-box">

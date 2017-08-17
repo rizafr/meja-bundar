@@ -40,6 +40,18 @@
 
 $route['default_controller'] = "publik";
 $route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+
+$route['admin/portfolio'] = 'Portfolio';
+$route['admin/portfolio/add'] = 'Portfolio/add';
+$route['admin/portfolio/edit/(:num)'] = 'Portfolio/edit/$1';
+$route['admin/portfolio/delete/(:num)'] = 'Portfolio/delete/$1';
+$route['admin/portfolio/save_edit'] = 'Portfolio/save_edit';
+$route['admin/portfolio/save_add'] = 'Portfolio/save_add';
+
+$route['image-upload'] = 'DropzoneImageController';
+$route['image-upload/post/(:num)'] = 'DropzoneImageController/proses_upload/$i';
+$route['image-upload/remove'] = 'DropzoneImageController/remove_foto';
 
 
 /* End of file routes.php */

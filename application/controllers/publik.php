@@ -11,7 +11,7 @@ class Publik extends CI_Controller {
 		$this->load->view('publik/home', ['instansi' => $instansi]);
 	}
 
-	public function portofolio($id = 1) {
+	public function portofolio($id) {
 		$instansi = $this->web_model->getDataByID('tr_instansi', 'id_instansi', '1');
 		$portofolio = $this->web_model->getDataByID('portfolios', 'id', $id);
 		$this->load->view('publik/portofolio', [

@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.49)
 # Database: db_meja-bundar
-# Generation Time: 2017-08-15 02:06:47 +0000
+# Generation Time: 2017-08-17 11:48:22 +0000
 # ************************************************************
 
 
@@ -29,7 +29,7 @@ CREATE TABLE `level` (
   `id_level` int(11) NOT NULL AUTO_INCREMENT,
   `level` varchar(100) NOT NULL,
   PRIMARY KEY (`id_level`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `level` WRITE;
 /*!40000 ALTER TABLE `level` DISABLE KEYS */;
@@ -55,7 +55,7 @@ CREATE TABLE `pengguna` (
   `jabatan` varchar(200) NOT NULL,
   `id_level` int(10) NOT NULL,
   PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `pengguna` WRITE;
 /*!40000 ALTER TABLE `pengguna` DISABLE KEYS */;
@@ -78,18 +78,22 @@ CREATE TABLE `portfolioItems` (
   `pictureUrl` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `portfolioId` int(11) DEFAULT NULL,
+  `token` text,
+  `createdTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `portfolioItems` WRITE;
 /*!40000 ALTER TABLE `portfolioItems` DISABLE KEYS */;
 
-INSERT INTO `portfolioItems` (`id`, `pictureUrl`, `title`, `portfolioId`)
+INSERT INTO `portfolioItems` (`id`, `pictureUrl`, `title`, `portfolioId`, `token`, `createdTime`)
 VALUES
-	(1,'upload/adera.jpg',NULL,1),
-	(2,'upload/ARTHU.jpg',NULL,1),
-	(3,'upload/ARTHU.jpg',NULL,1),
-	(4,'upload/adera.jpg',NULL,1);
+	(1,'portfolio-images/b.png','b.png',4,'0.8844842291278265','2017-08-17 18:46:11'),
+	(2,'portfolio-images/a.png','a.png',4,'0.5834338813769302','2017-08-17 18:46:11'),
+	(3,'portfolio-images/c.png','c.png',4,'0.41105901627042507','2017-08-17 18:46:11'),
+	(4,'portfolio-images/d.png','d.png',4,'0.8196674113612381','2017-08-17 18:46:11'),
+	(5,'portfolio-images/e.png','e.png',4,'0.28445666648690615','2017-08-17 18:46:12'),
+	(6,'portfolio-images/e1.png','e1.png',4,'0.5994789032190384','2017-08-17 18:46:33');
 
 /*!40000 ALTER TABLE `portfolioItems` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -110,19 +114,21 @@ CREATE TABLE `portfolios` (
   `linkUrl` varchar(255) DEFAULT NULL,
   `youtubeUrlId` varchar(255) DEFAULT NULL,
   `createdTime` datetime DEFAULT NULL,
-  `updateDate` timestamp NULL DEFAULT NULL,
+  `updatedTime` timestamp NULL DEFAULT NULL,
   `createdBy` varchar(255) DEFAULT NULL,
   `updatedBy` varchar(255) DEFAULT NULL,
   `isRemoved` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `portfolios` WRITE;
 /*!40000 ALTER TABLE `portfolios` DISABLE KEYS */;
 
-INSERT INTO `portfolios` (`id`, `title`, `subTitle`, `overview`, `publishedTime`, `role`, `linkUrl`, `youtubeUrlId`, `createdTime`, `updateDate`, `createdBy`, `updatedBy`, `isRemoved`)
+INSERT INTO `portfolios` (`id`, `title`, `subTitle`, `overview`, `publishedTime`, `role`, `linkUrl`, `youtubeUrlId`, `createdTime`, `updatedTime`, `createdBy`, `updatedBy`, `isRemoved`)
 VALUES
-	(1,'Lookfest 2016','Lala','<h3> Adventure of Sound </h3>\n<p>\n	A visual mapping stage we have created\n</p>\n','2016-10-10','Visual Mapping, Bumper','instagram Web','XGSy3_Czz8k',NULL,NULL,NULL,NULL,0);
+	(1,'Lookfest 2016','Lala','<h3> Adventure of Sound </h3>\n<p>\n	A visual mapping stage we have created\n</p>\n','2016-10-10','Visual Mapping, Bumper','instagram Web','XGSy3_Czz8k',NULL,NULL,NULL,NULL,0),
+	(3,'Lookfest 2016','Lala','<h3> Adventure of Sound </h3>\n<p>\n	A visual mapping stage we have created\n</p>\n','2016-10-10','Visual Mapping, Bumper','instagram Web','XGSy3_Czz8k',NULL,NULL,NULL,NULL,0),
+	(4,'lala','lala','lala\n','0000-00-00','lala','lala','','2017-08-17 18:28:22','2017-08-17 18:46:19','admin','admin',0);
 
 /*!40000 ALTER TABLE `portfolios` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -139,7 +145,7 @@ CREATE TABLE `tr_instansi` (
   `alamat_instansi` text NOT NULL,
   `logo_instansi` varchar(100) NOT NULL,
   PRIMARY KEY (`id_instansi`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `tr_instansi` WRITE;
 /*!40000 ALTER TABLE `tr_instansi` DISABLE KEYS */;

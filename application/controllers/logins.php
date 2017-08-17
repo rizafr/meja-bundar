@@ -14,7 +14,7 @@ class Logins extends CI_Controller {
 		
 		$a['page']	= "beranda";
 		
-		$this->load->view('admin/index', $a);
+		$this->load->view('admin/portfolio', $a);
 	}
 	
 	public function login() {
@@ -48,7 +48,7 @@ class Logins extends CI_Controller {
 					'admin_valid' => true
                     );
             $this->session->set_userdata($data);
-            redirect('admin');
+            redirect('admin/portfolio');
         } else {	
 			$this->session->set_flashdata("k", "<div id=\"alert\" class=\"alert alert-error\">username or password is not valid</div>");
 			redirect('logins/login');
