@@ -47,7 +47,7 @@ class Portfolio extends CI_Controller {
 		];
 		$this->db->insert('portfolios', $data); 
 		$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id_surat_masuk=\"alert\">Data berhasil ditambahkan.</div>");
-		redirect('portfolio/index');
+		redirect('admin/portfolio');
 	}
 
 	public function edit($id) {

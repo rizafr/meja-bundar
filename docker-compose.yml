@@ -1,0 +1,23 @@
+version: "3"
+services:
+    # web:
+    #     image: php:5.6.30-apache
+    #     command: php -S 0.0.0.0:8000
+    #     ports:
+    #         - 8000:8000
+    #     volumes:
+    #         - .:/var/www/html
+    #     links:
+    #         - mysql
+    mysql:
+        image: mysql:5.6.34
+        volumes:
+            - /tmp/mysql:/var/lib/mysql
+        command: ["--sql_mode", ""]
+        environment:
+            - MYSQL_ROOT_PASSWORD=rahasia
+            - MYSQL_USER=rahasia
+            - MYSQL_PASSWORD=rahasia
+            - MYSQL_DATABASE=rahasia
+        ports:
+            - 3306:3306
