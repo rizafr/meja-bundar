@@ -86,14 +86,14 @@ class Portfolio extends CI_Controller {
 		$this->db->where('id',$id);
 		$this->db->update('portfolios', $data);
 		$this->session->set_flashdata("k", "<div class=\"alert alert-success alert\">Data berhasil diubah.</div>");
-		redirect('portfolio/index');
+		redirect('admin/portfolio');
 	}
 
 	public function delete($id) {
 		$this->db->where('id',$id);
 		$this->db->delete('portfolios');
 		$this->session->set_flashdata("k", "<div class=\"alert alert-success alert\">Data berhasil dihapus.</div>");
-		redirect('portfolio/index');
+		redirect('admin/portfolio');
 	}
 
 	public function getImages($id) {
