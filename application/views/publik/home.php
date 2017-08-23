@@ -5,6 +5,7 @@
         <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css">
         <!-- Add icon library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> 
         <meta name="viewport" content="width=device-width">
     </head>
 
@@ -30,10 +31,10 @@
         
         <div class="wrapper">
             <div class="home" id="home">
-                <div class="logo">
+                <div class="logo wow fadeInUp">
                     <img src="<?php echo base_url(); ?>assets/img/logoajakecil.png">
                 </div>
-                <div class="quotes">
+                <div class="quotes wow fadeInUp">
                     <blockquote>“Be Drawn to the Visual Arts for It Can Expand Your Imagination.”</blockquote>
                     <span>By Barbara Januszkiewicz</span>
                 </div>
@@ -41,13 +42,13 @@
           </div>
         
             <div class="bgblack">
-                <div class="bgvid">
+                <div class="bgvid wow fadeIn">
                     <video id="vidbg" preload="auto" autoplay="true" loop="loop">
                         <source src="<?php echo base_url(); ?>assets/mov/vidbg.mp4" type="video/mp4"> 
                     </video>
                 </div>
                 
-                <div class="about wrapper" id="about">
+                <div class="about wrapper wow fadeInUp" id="about">
                     <h2><?= $instansi->nama_instansi;?> speaks through visual experience. 
                     We Called ourselves as visual explorer. </h2>
                 </div>
@@ -55,10 +56,10 @@
             
 
             <div class="wedowell wrapper" id="doweell">
-                <div class="wrapper">
+                <div class="wrapper wow fadeInUp">
                     <h3>Things We Do Well</h3>
                 </div>
-                <ul>
+                <ul class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
                     <li> Visual Stage   </li>
                     <li> Visual Mapping </li>
                     <li> Video Mapping  </li>
@@ -69,12 +70,12 @@
             </div>
             
             <div class="bgblack">
-            <div class="wrapper">
+            <div class="wrapper wow fadeInUp" id="team">
                 <h3>The Team</h3>
             </div>
                 
-            <div class="team wrapper" id="team">
-                <ul>
+            <div class="team wrapper wow fadeIn">
+                <ul class="wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
                     <li>
                         <img src="<?php echo base_url(); ?>assets/img/deva.jpg" alt="daivalana">
                         <h3>Daivalana</h3>
@@ -122,9 +123,9 @@
                 <?php $portfolioList = $this->db->query("SELECT portfolioId, pictureUrl FROM portfolioItems  group by portfolioId order by portfolioId DESC")->result();
                     foreach ($portfolioList as $key => $value) :
                 ?>
-                    <div class="portfolio-list">
+                    <div class="portfolio-list wow fadeInUp">
                     <a href="<?php echo base_url(); ?>publik/portofolio/<?= $value->portfolioId ?>">
-                        <img style= "background-image: url('<?= base_url() . $value->pictureUrl ?>')" alt="" class="hover-shadow">
+                        <img style= "background-image: url('<?= base_url() . $value->pictureUrl ?>')" alt="" class="hover-shadow wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
                     </a>
                     </div>
                 <?php endforeach;?>
@@ -134,10 +135,10 @@
             
         <div class="bgblack" id="contact">
             <div class="contact wrapper">
-                <h2>If you have anything to be asked or wanna work with us, get in touch at:</h2>
-                <span>studio<?= $instansi->nama_instansi;?>@gmail.com</span>
+                <h2 class="wow fadeInUp">If you have anything to be asked or wanna work with us, get in touch at:</h2>
+                <span class="wow fadeInUp">studio<?= $instansi->nama_instansi;?>@gmail.com</span>
              </div>
-             <div class="footer wrapper">
+             <div class="footer wrapper wow fadeInUp">
                 <div id="address">
                     <h4><a href="https://goo.gl/maps/PtTxQrwFnCw">Jl. Gudang Selatan No.22 A, Bandung, ID</a></h4>
                 </div>
@@ -153,6 +154,7 @@
             </div>
 
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
             <script type="text/javascript">
                 // Create a clone of the menu, right next to original.
                 $('.menu').addClass('original').clone().insertAfter('.menu').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
@@ -208,6 +210,8 @@
                       });
                     } // End if
                   });
+
+                  new WOW().init();
             </script>
        
     </body>
