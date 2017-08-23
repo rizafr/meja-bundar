@@ -17,6 +17,20 @@ body, ul, li{
     padding: 0 2%;
 }
 
+.menu.cloned {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding-top: 0;
+    width: 100%;
+    height: 50px;
+    padding-left: 35%;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 7px 12px -5px rgba(204,208,204,.8);
+    -moz-box-shadow: 0 7px 12px -5px rgba(204,208,204,.8);
+    box-shadow: 0 7px 12px -5px rgba(204,208,204,.8);
+    transition: all .8s ease-in-out;
+}
+
 header nav h2{
     line-height: 0;
     margin: 0;

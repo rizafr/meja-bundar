@@ -12,7 +12,7 @@
          <header>
             <div class="wrapper">
                 <h1><?= $instansi->nama_instansi;?></h1>
-                <nav>
+                <nav class="menu">
                     <h2>Main Navigation</h2>
                     <div id="burger-nav"></div>
                     <ul>
@@ -151,6 +151,64 @@
                 </div>
               </div>
             </div>
+
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript">
+                // Create a clone of the menu, right next to original.
+                $('.menu').addClass('original').clone().insertAfter('.menu').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
+
+                scrollIntervalID = setInterval(stickIt, 10);
+
+
+                function stickIt() {
+
+                  var orgElementPos = $('.original').offset();
+                  orgElementTop = orgElementPos.top + 55;               
+
+                  if ($(window).scrollTop() >= (orgElementTop)) {
+                    // scrolled past the original position; now only show the cloned, sticky element.
+
+                    // Cloned element should always have same left position and width as original element.     
+                    orgElement = $('.original');
+                    coordsOrgElement = orgElement.offset();
+                    leftOrgElement = coordsOrgElement.left;  
+                    widthOrgElement = orgElement.css('width');
+                    $('.cloned')
+                        .css('left','0'+'px')
+                        .css('right','0'+'px')
+                        .css('top',0)
+                        .css('width','100%')
+                        .show();
+                    $('.original').css('visibility','hidden');
+                  } else {
+                    // not scrolled past the menu; only show the original menu.
+                    $('.cloned').hide();
+                    $('.original').css('visibility','visible');
+                  }
+                }
+                // Add smooth scrolling to all links
+                  $("a").on('click', function(event) {
+
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                      // Prevent default anchor click behavior
+                      event.preventDefault();
+
+                      // Store hash
+                      var hash = this.hash;
+
+                      // Using jQuery's animate() method to add smooth page scroll
+                      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                      $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 50
+                      }, 800, function(){
+                   
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                      });
+                    } // End if
+                  });
+            </script>
        
     </body>
 </html>
