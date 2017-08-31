@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width">
     </head>
     
-    <body>
+    <body class="page-portfolio">
         <header>
             <div class="wrapper">
                 <h1><?= $instansi->nama_instansi;?></h1>

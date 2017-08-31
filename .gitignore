@@ -6,3 +6,4 @@
 */cache/!.htaccess
 vendor/
 .env
+*/application/config/database.php

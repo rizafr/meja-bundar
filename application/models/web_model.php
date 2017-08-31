@@ -65,6 +65,18 @@ class Web_model extends CI_Model {
         }
         return false;
     }
+
+    function getPortfolioList() {
+        $this->db->select('*');
+        $this->db->from('portfolios p');
+        $this->db->join('portfolioItems i', 'p.id = i.portfolioId');
+        $this->db->order_by('p.createdTime','asc');         
+        $query = $this->db->get(); 
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        return false;
+    }
 	
 	
 	

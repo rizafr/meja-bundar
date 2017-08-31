@@ -96,7 +96,7 @@ if ($mode == "edit" || $mode == "act_edt") {
 				<tr>
 					<td width="20%">Role</td>
 					<td>
-						<input type="text" autofocus tabindex="4"  name="role" value="<?php echo $role; ?>" class="form-control">
+						<input type="text" autofocus tabindex="4"  name="role" data-role="tagsinput" value="<?php echo $role; ?>" id="role" class="form-control">
 					</td>
 				</tr>
 			</table>
@@ -148,3 +148,10 @@ if ($mode == "edit" || $mode == "act_edt") {
 	</div>
 </form>
 </div>
+
+<script type="text/javascript">
+	$('#role').tagsinput({
+		confirmKeys: [13, 44],
+		maxTags: 20
+	});
+</script>
