@@ -52,11 +52,11 @@
 		<script src="<?php echo base_url(); ?>aset/js/bootswatch.js"></script>
 		<script src="<?php echo base_url(); ?>aset/js/bootstrap-tooltip.js"></script>
 		<script src="<?php echo base_url() ?>aset/js/wow.min.js"></script>
-		<script src="<?php echo base_url(); ?>aset/css/vertical-timeline/js/main.js"></script> <!-- Resource jQuery -->
-		<script src="<?php echo base_url(); ?>aset/css/vertical-timeline/js/modernizr.js"></script> <!-- Modernizr -->
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
 		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 		
 		
 		<script type="text/javascript">
