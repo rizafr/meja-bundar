@@ -126,16 +126,18 @@
 
                 <div class="container">
                     <div class="row">
-                        <?php foreach ($portfolios as $portfolio => $item): ?>
-                            <?php
+                        <?php foreach ($portfolios as $portfolio => $item): 
                             $query = $this->db->get_where('portfolioItems', array('portfolioId' => $item->id));
-                            $row = $query->row();
-                            if (count($row)) :
-                                ?>
+                        $row = $query->row();
+                        $picture = 'portfolio-images/no-image-available.png';
+                        if (count($row)) {
+                            $picture = $row->pictureUrl;
+                        }
+                        ?>
 
                             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                                 <div class="card wow fadeInUp">
-                                    <div class="card-img-top" style="background-image: url('<?= base_url() . $row->pictureUrl ?>')"></div>
+                                    <div class="card-img-top" style="background-image: url('<?= base_url() . $picture ?>')"></div>
                                     <div class="card-block">
                                         <h4 class="card-title">
                                             <?= $item->title?>
@@ -148,13 +150,12 @@
                                     <div class="card-footer">
                                         <small><?= $item->createdTime; ?></small>
                                         <a href="<?php echo base_url(); ?>publik/portofolio/<?= $item->id ?>">
-                                            <button class="btn btn-secondary float-right btn-sm">show</button>
+                                            <button class="btn btn--pill btn--translucent float-right btn-sm">Read More</button>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <?php 
-                            endif;
                             endforeach; 
                             ?>
 
