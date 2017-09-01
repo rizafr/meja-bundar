@@ -1,3 +1,31 @@
+<?php
+function slugify($text)
+{
+  // replace non letter or digits by -
+  $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+  // transliterate
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+  // remove unwanted characters
+  $text = preg_replace('~[^-\w]+~', '', $text);
+
+  // trim
+  $text = trim($text, '-');
+
+  // remove duplicate -
+  $text = preg_replace('~-+~', '-', $text);
+
+  // lowercase
+  $text = strtolower($text);
+
+  if (empty($text)) {
+    return 'n-a';
+  }
+
+  return $text;
+}
+?>
 <!Doctype html>
 <html>
 <head>
@@ -123,46 +151,54 @@
                 <div class="container">
                     <h3 class="title">Latest Work</h3>
                 </div>
-
+                <?php  if (count($portfolios)) : ?>
                 <div class="container">
                     <div class="row">
-                        <?php foreach ($portfolios as $portfolio => $item): 
+                        <div class="portfolio-filter">
+                            <button class="btn btn-default filter-button" data-filter="all">All</button>
+                            <?php
+                                foreach ($portfolios as $portfolio => $item) {
+                                    $role = $item->role;
+                                    $roleItems = explode(',', $role);
+                                    $listCategory[] = $roleItems[0];
+                                }
+                                $result = array_unique($listCategory);
+                            ?>
+                            <?php foreach ($result as $key => $value) : ?>
+                                <button class="btn btn-default filter-button" data-filter="<?= slugify($value);?>"><?= $value;?></button>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <?php
+                        foreach ($portfolios as $portfolio => $item): 
                             $query = $this->db->get_where('portfolioItems', array('portfolioId' => $item->id));
-                        $row = $query->row();
-                        $picture = 'portfolio-images/no-image-available.png';
-                        if (count($row)) {
-                            $picture = $row->pictureUrl;
-                        }
+                            $row = $query->row();
+                            $picture = 'portfolio-images/no-image-available.png';
+                            if (count($row)) {
+                                $picture = $row->pictureUrl;
+                            }
+                            $role = $item->role;
+                            $category = explode(',', $role);
                         ?>
 
-                            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-                                <div class="card wow fadeInUp">
-                                    <div class="card-img-top" style="background-image: url('<?= base_url() . $picture ?>')"></div>
-                                    <div class="card-block">
-                                        <h4 class="card-title">
-                                            <?= $item->title?>
-                                        </h4>
+                        <div class="portfolio-list col-md-4 wow fadeInUp filter <?= slugify($category[0]);?>">
+                        <a href="<?php echo base_url(); ?>publik/portofolio/<?= $item->id ?>" class="grid-overlay">
+                            <span class="grid-caption">
+                            <strong><?= $item->title?></strong>
+                            </span>
+                        </a>
+                        <img style= "background-image: url('<?= base_url() . $picture ?>')" alt="" class="hover-shadow wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+                       </a>
+                       </div>
 
-                                        <div class="card-text">
-                                        <?= $item->overview?>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small><?= $item->createdTime; ?></small>
-                                        <a href="<?php echo base_url(); ?>publik/portofolio/<?= $item->id ?>">
-                                            <button class="btn btn--pill btn--translucent float-right btn-sm">Read More</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php 
-                            endforeach; 
-                            ?>
-
+                        <?php 
+                        endforeach; 
+                        ?>
                         </div>
-
                     </div>
-                </div>
+                <?php endif ;?>
 
                 <div class="bgblack" id="contact">
                     <div class="contact container">
@@ -231,22 +267,30 @@ $("a").on('click', function(event) {
 
 new WOW().init();
 
-$(".filter-button").click(function(){
-    var value = $(this).attr('data-filter');
-    if (value == "all") {
-        $('.filter').show('1000');
-    } else {
-        $(".filter").not('.'+value).hide('3000');
-        $('.filter').filter('.'+value).show('3000');
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+        
+        if(value == "all")
+        {
+            $('.filter').show('1000');
+        }
+        else
+        {
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
+        }
+    });
+    
+    if ($(".filter-button").removeClass("active")) {
+        $(this).removeClass("active");
     }
-});
+    $(this).addClass("active");
 
-if ($(".filter-button").removeClass("active")) {
-    $(this).removeClass("active");
-}
-$(this).addClass("active");
 });
 </script>
+
+
 
 </body>
 </html>
