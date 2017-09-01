@@ -31,7 +31,7 @@ function slugify($text)
 <head>
     <title><?= $instansi->nama_instansi;?></title>
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css">
     <!-- Add icon library -->
