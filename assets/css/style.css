@@ -10,6 +10,10 @@ body, ul, li {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+a:hover{
+    text-decoration: none;
+}
+
 .btn-primary {
     background-color: #516ca4;
     border-color: #516ca4;
@@ -324,17 +328,46 @@ h4 a, #social-icons li a:visited{
     min-height: 600px;
 }
 
-.portfolio-list{
-    margin: 2% 10.5%;
-}
 
 .portfolio-list img{
     float: left;
     margin: 2.5%;
     position: relative;
-    width: 300px;
+    width: 100%;
     height: 300px;
-    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #f1f1f1;
+}
+
+.portfolio-list:hover .grid-overlay {
+    opacity: 1;
+}
+
+.grid-caption {
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+}
+
+.grid-overlay {
+    position: absolute;
+    color: #fff;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.7);
+    padding: 10px 15px;
+    text-align: center;
+    transition: opacity .3s;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 9;
 }
 
 .portfolio-list img:hover{
@@ -589,6 +622,12 @@ img.hover-shadow {
     height: 45px;
     border-bottom: 1px solid #5e5e5e;
 }
+
+.portfolio-filter {
+    display: block;
+    margin: 0 auto;
+}
+
 .filter-button
 {
     font-size: 18px;
@@ -601,9 +640,7 @@ img.hover-shadow {
 }
 .filter-button:hover
 {
-    font-size: 18px;
     border: 1px solid #42B32F;
-    border-radius: 5px;
     text-align: center;
     color: #ffffff;
     background-color: #42B32F;
