@@ -9,6 +9,15 @@ class Publik extends CI_Controller {
 	public function index() {
 		$instansi = $this->web_model->getDataByID('tr_instansi', 'id_instansi', '1');
 		$portfolios = $this->web_model->getAll('portfolios');
+		$this->load->view('publik/index', [
+			'instansi' => $instansi,
+			'portfolios' => $portfolios
+		]);
+	}
+
+	public function home() {
+		$instansi = $this->web_model->getDataByID('tr_instansi', 'id_instansi', '1');
+		$portfolios = $this->web_model->getAll('portfolios');
 		$this->load->view('publik/home', [
 			'instansi' => $instansi,
 			'portfolios' => $portfolios

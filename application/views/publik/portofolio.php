@@ -9,25 +9,10 @@
     </head>
     
     <body class="page-portfolio">
-        <header>
-            <div class="wrapper">
-                <h1><?= $instansi->nama_instansi;?></h1>
-                <nav>
-                    <h2>Main Navigation</h2>
-                    <div id="burger-nav"></div>
-                    <ul>
-                        <li><a href="" class="current">Home</a></li>                        
-                        <li><a href="#abouts" >About</a></li>             
-                        <li><a href="" >We Do Well</a></li>       
-                        <li><a href="" >Team</a></li>
-                        <li><a href="" >Portfolio</a></li>
-                        <li><a href="" >Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
         
         <section>
+            <button onclick="goBack()" style="position: absolute; left: 10px; font-size: 14px;">Go Back</button>
+
             <div class="portfolio-header">
                 <h2><?= $portofolio->title ?></h2>
                 <h4> <?= $portofolio->subTitle ?></h4>
@@ -132,5 +117,10 @@
               </div>
         </footer>
         <script src="<?php echo base_url(); ?>assets/js/gallery.js"></script>
+        <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
     </body>
 </html>
