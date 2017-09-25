@@ -31,6 +31,7 @@
 						<th width="20%">Sub Judul</th>
 						<th width="25%">Overview</th>
 						<th width="25%">Role</th>
+						<th width="25%">Client Name</th>
 						<th width="25%">Tanggal Publikasi</th>
 						<th width="20%">Aksi</th>
 					</tr>
@@ -48,9 +49,10 @@
 								<td class="ctr"><?php echo $b->id;?></td>
 								<td><?php echo $b->title?></td>
 								<td><?php echo $b->subTitle?></td>
-								<td><?php echo $b->overview ?></td>
+								<td class="ellipsis"><?php echo $b->overview ?></td>
 								<td><?php echo $b->role?></td>
-								<td><?php echo $b->createdTime?></td>
+								<td><?php echo $b->clientName?></td>
+								<td><?php echo $b->publishedTime?></td>
 								<td class="ctr">
 									<div class="btn-group">
 										<a href="<?php echo base_URL(); ?>admin/portfolio/edit/<?php echo $b->id; ?>" class="btn btn-success btn-sm" title="Edit Data"><i class="icon-edit icon-white"> </i> Edt</a>

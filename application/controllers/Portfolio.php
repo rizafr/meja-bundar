@@ -29,6 +29,7 @@ class Portfolio extends CI_Controller {
 		$role			= addslashes($this->input->post('role'));
 		$linkUrl			= addslashes($this->input->post('linkUrl'));
 		$youtubeUrlID			= addslashes($this->input->post('youtubeUrlID'));
+		$clientName			= addslashes($this->input->post('clientName'));
 		$createdTime			= date('Y-m-d H:i:s');
 		$updatedTime			= date('Y-m-d H:i:s');
 		$createdBy			= 'admin';
@@ -41,6 +42,7 @@ class Portfolio extends CI_Controller {
 			'role' => $role,
 			'linkUrl' => $linkUrl,
 			'youtubeUrlId' => $youtubeUrlID,
+			'clientName' => $clientName,
 			'createdTime' => $createdTime,
 			'updatedTime' => $updatedTime,
 			'createdBy' => $createdBy,
@@ -68,6 +70,7 @@ class Portfolio extends CI_Controller {
 		$role			= addslashes($this->input->post('role'));
 		$linkUrl			= addslashes($this->input->post('linkUrl'));
 		$youtubeUrlId			= addslashes($this->input->post('youtubeUrlId'));
+		$clientName			= addslashes($this->input->post('clientName'));
 		$updatedTime			= date('Y-m-d H:i:s');
 		$updatedBy			= 'admin';
 
@@ -80,6 +83,7 @@ class Portfolio extends CI_Controller {
 			'role' => $role,
 			'linkUrl' => $linkUrl,
 			'youtubeUrlId' => $youtubeUrlId,
+			'clientName' => $clientName,
 			'updatedTime' => $updatedTime,
 			'updatedBy' => $updatedBy,
 		];

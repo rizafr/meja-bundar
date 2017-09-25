@@ -9,6 +9,8 @@ if ($mode == "edit" || $mode == "act_edt") {
 	$role		= $datpil->role;
 	$linkUrl	= $datpil->linkUrl;
 	$youtubeUrlID = $datpil->youtubeUrlId;
+	$clientName = $datpil->clientName;
+	$publishedTime = $datpil->publishedTime;
 
 } else {
 	$act		= "save_add";
@@ -20,6 +22,8 @@ if ($mode == "edit" || $mode == "act_edt") {
 	$role		= "";
 	$linkUrl	= "";
 	$youtubeUrlID = "";
+	$clientName = "";
+	$publishedTime = "";
 }
 ?>
 
@@ -94,7 +98,7 @@ if ($mode == "edit" || $mode == "act_edt") {
 					</td>
 				</tr>
 				<tr>
-					<td width="20%">Role</td>
+					<td width="20%">Role / Category</td>
 					<td>
 						<input type="text" autofocus tabindex="4"  name="role" data-role="tagsinput" value="<?php echo $role; ?>" id="role" class="form-control">
 					</td>
@@ -105,6 +109,12 @@ if ($mode == "edit" || $mode == "act_edt") {
 		<div class="col-md-6">	
 			<table width="100%" class="table-form">
 				<tr>
+					<td width="20%">Client Name</td>
+					<td>
+						<input type="text" autofocus tabindex="6"  name="clientName" value="<?php echo $clientName; ?>" class="form-control">
+					</td>
+				</tr>
+				<tr>
 					<td width="20%">Link Url</td>
 					<td>
 						<input type="text" autofocus tabindex="5"  name="linkUrl" value="<?php echo $linkUrl; ?>" class="form-control">
@@ -114,6 +124,12 @@ if ($mode == "edit" || $mode == "act_edt") {
 					<td width="20%">Youtube Url ID</td>
 					<td>
 						<input type="text" autofocus tabindex="6"  name="youtubeUrlId" value="<?php echo $youtubeUrlID; ?>" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%">Published Time</td>
+					<td>
+						<input type="text" autofocus tabindex="7" id="publishedTime" name="publishedTime" value="<?php echo $publishedTime; ?>" class="form-control" required>
 					</td>
 				</tr>
 			</table>
@@ -130,10 +146,11 @@ if ($mode == "edit" || $mode == "act_edt") {
 		<?php if ($portfolioItems):?>
 		<ul class="gallery">
 			<?php foreach($portfolioItems as $row => $value): ?>
-		    <li class="col-md-3"><a href="<?= base_url() . $value->pictureUrl;?>" data-fancybox="group" data-token="<?= $value->token?>" data-caption="<?php echo $value->title; ?>" >
-                <img src="<?= base_url() . $value->pictureUrl;?>" alt="" />
-            </a>
-            <a href="javascript:void(0)" class="link--remove-image"  data-token="<?= $value->token?>">Remove</a>
+		    <li class="col-md-3">
+			    <a href="<?= base_url() . $value->pictureUrl;?>" data-fancybox="group" data-token="<?= $value->token?>" data-caption="<?php echo $value->title; ?>" >
+	                <img src="<?= base_url() . $value->pictureUrl;?>" alt="" />
+	            </a>
+	            <a href="javascript:void(0)" class="link--remove-image"  data-token="<?= $value->token?>">Remove</a>
             </li>
         	<?php endforeach;?>
 		</ul>
@@ -153,5 +170,10 @@ if ($mode == "edit" || $mode == "act_edt") {
 	$('#role').tagsinput({
 		confirmKeys: [13, 44],
 		maxTags: 20
+	});
+	$( "#publishedTime" ).datepicker({
+		changeMonth: true,
+		changeYear: true,
+		dateFormat: 'yy-mm-dd'
 	});
 </script>
