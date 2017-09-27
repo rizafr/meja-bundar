@@ -24,7 +24,7 @@ class Portfolio extends CI_Controller {
 		//ambil variabel Postingan
 		$title				= addslashes($this->input->post('title'));
 		$subTitle			= addslashes($this->input->post('subTitle'));
-		$overview			= addslashes($this->input->post('overview'));
+		$overview			= $this->input->post('overview');
 		$publishedTime			= addslashes($this->input->post('publishedTime'));
 		$role			= addslashes($this->input->post('role'));
 		$linkUrl			= addslashes($this->input->post('linkUrl'));
@@ -65,7 +65,7 @@ class Portfolio extends CI_Controller {
 		$id					= addslashes($this->input->post('id'));
 		$title				= addslashes($this->input->post('title'));
 		$subTitle			= addslashes($this->input->post('subTitle'));
-		$overview			= addslashes($this->input->post('overview'));
+		$overview			= $this->input->post('overview');
 		$publishedTime		= addslashes($this->input->post('publishedTime'));
 		$role			= addslashes($this->input->post('role'));
 		$linkUrl			= addslashes($this->input->post('linkUrl'));

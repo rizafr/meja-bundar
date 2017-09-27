@@ -1,11 +1,6 @@
 
 /*gallery*/
-
-.row > .column {
-    padding: 0 20px;
-}
-
-.row .column img {
+.container .column img {
     max-width: 250px;
     height: 250px;
     margin: 20px;
@@ -13,20 +8,14 @@
     background-size: cover;
 }
 
-.row .column img:hover {
+.container .column img:hover {
     cursor: pointer;
 }
 
-
-.row:after {
+.container:after {
     content: "";
     display: table;
     clear: both;
-}
-
-.row .column {
-    float: left;
-    width: 20%;
 }
 
 /* The Modal (background) */
@@ -148,8 +137,13 @@ img.hover-shadow {
 }
 
 @media (max-width: 768px) {
-    .row .column {
+    .container .column {
         float: left;
         width: 100%;
     }
+}
+
+.gallery .img-responsive {
+   margin: 30px;
+   width: 300px;
 }

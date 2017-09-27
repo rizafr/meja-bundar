@@ -16,28 +16,27 @@
     </div>
     <div class="ae-container-fluid ae-container-fluid--inner rk-portfolio--inner">
         <div class="ae-grid ae-grid--collapse au-xs-ptp-1">
-            <div class="ae-grid__item item-lg-5 au-lg-ptp-1">
+            <div class="ae-grid__item item-lg-12 au-lg-ptp-1">
                 <p class="ae-eta"><?= $portofolio->overview ?></p>
             </div>
         </div>
     </div>
-    <div class="ae-grid__item item-lg-6 item-lg--offset-1">
-        <iframe width="1100" height="600"
-        src="https://www.youtube.com/embed/<?= $portofolio->youtubeUrlId;?>">
-    </iframe>
+    <div class="ae-grid__item item-lg-10 item-lg--offset-2">
+        <div class='embed-container'>
+            <iframe src="https://www.youtube.com/embed/<?= $portofolio->youtubeUrlId;?>"></iframe>
+        </div>
     </div>
 
 <?php 
     $portfolioItems = $this->db->query("SELECT * FROM portfolioItems where portfolioId = '$portofolio->id'")->result();
 ?>
     <section class="gallery">
-        <div>
-            <div class="row">
+            <div class="container">
                 <?php 
                     $i = 1; 
                     foreach($portfolioItems as $row => $value):?>
-                        <a href="<?= base_url() . $value->pictureUrl;?>" class="column" data-fancybox="group">
-                            <img src="<?= base_url() . $value->pictureUrl;?>">
+                        <a href="<?= base_url() . $value->pictureUrl;?>" class="portfolio-list col-md-4" data-fancybox="group">
+                            <img style= "background-image: url('<?= base_url() . $value->pictureUrl ?>')" class="img-responsive"/>
                         </a>
                 <?php 
                     $i++;
@@ -45,7 +44,6 @@
                 ?>
                   
             </div>
-        </div>
     </section>
 
 
