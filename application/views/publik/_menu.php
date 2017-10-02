@@ -31,6 +31,11 @@
 					</a>
 				</li>
 				<li class="rk-menu__item">
+					<a href="<?php echo base_url(); ?>publik/client" class="rk-menu__link">
+						Client
+					</a>
+				</li>
+				<li class="rk-menu__item">
 					<a href="<?php echo base_url(); ?>publik/contact" class="rk-menu__link">
 						Contact Us
 					</a>

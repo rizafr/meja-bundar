@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.49)
 # Database: db_meja-bundar
-# Generation Time: 2017-09-25 14:03:56 +0000
+# Generation Time: 2017-10-02 15:08:58 +0000
 # ************************************************************
 
 
@@ -20,6 +20,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+# Dump of table clients
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `clients`;
+
+CREATE TABLE `clients` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(11) DEFAULT NULL,
+  `url` text,
+  `pictureBwUrl` text,
+  `pictureColorUrl` text,
+  `createdTime` datetime DEFAULT NULL,
+  `updatedTime` timestamp NULL DEFAULT NULL,
+  `createdBy` int(11) DEFAULT NULL,
+  `updatedBy` int(11) DEFAULT NULL,
+  `isRemoved` tinyint(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `clients` WRITE;
+/*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+
+INSERT INTO `clients` (`id`, `name`, `url`, `pictureBwUrl`, `pictureColorUrl`, `createdTime`, `updatedTime`, `createdBy`, `updatedBy`, `isRemoved`)
+VALUES
+	(5,'yahoo',NULL,NULL,'upload/yahoo-250x58.png','2017-10-02 21:45:42','2017-10-02 21:45:42',0,NULL,NULL),
+	(6,'Google',NULL,NULL,'upload/216_menara-165-menara-165_20170309101151_75681.jpg','2017-10-02 21:52:54','2017-10-02 21:52:54',0,NULL,NULL);
+
+/*!40000 ALTER TABLE `clients` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table level
 # ------------------------------------------------------------
 
@@ -29,7 +60,7 @@ CREATE TABLE `level` (
   `id_level` int(11) NOT NULL AUTO_INCREMENT,
   `level` varchar(100) NOT NULL,
   PRIMARY KEY (`id_level`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `level` WRITE;
 /*!40000 ALTER TABLE `level` DISABLE KEYS */;
@@ -55,7 +86,7 @@ CREATE TABLE `pengguna` (
   `jabatan` varchar(200) NOT NULL,
   `id_level` int(10) NOT NULL,
   PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `pengguna` WRITE;
 /*!40000 ALTER TABLE `pengguna` DISABLE KEYS */;
@@ -81,7 +112,7 @@ CREATE TABLE `portfolioItems` (
   `token` text,
   `createdTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `portfolioItems` WRITE;
 /*!40000 ALTER TABLE `portfolioItems` DISABLE KEYS */;
@@ -95,8 +126,6 @@ VALUES
 	(5,'portfolio-images/e.png','e.png',4,'0.28445666648690615','2017-08-17 18:46:12'),
 	(6,'portfolio-images/e1.png','e1.png',4,'0.5994789032190384','2017-08-17 18:46:33'),
 	(7,'portfolio-images/e2.png','e2.png',3,'0.4471709570483917','2017-08-17 18:54:38'),
-	(8,'portfolio-images/Screenshot_from_2017-08-17_22-38-21.png','Screenshot_from_2017-08-17_22-38-21.png',4,'0.2086353744373599','2017-08-18 08:38:17'),
-	(9,'portfolio-images/Screenshot_from_2017-08-17_20-47-41.png','Screenshot_from_2017-08-17_20-47-41.png',4,'0.3483959731863304','2017-08-18 08:38:32'),
 	(12,'portfolio-images/a1.png','a1.png',4,'0.9216535748193542','2017-08-21 21:02:26'),
 	(13,'portfolio-images/c1.png','c1.png',4,'0.6498802875943304','2017-08-21 21:02:26'),
 	(14,'portfolio-images/d1.png','d1.png',4,'0.8344417247573512','2017-08-21 21:02:26'),
@@ -135,7 +164,7 @@ CREATE TABLE `portfolios` (
   `category` varchar(255) DEFAULT NULL,
   `clientName` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `portfolios` WRITE;
 /*!40000 ALTER TABLE `portfolios` DISABLE KEYS */;
@@ -143,11 +172,11 @@ LOCK TABLES `portfolios` WRITE;
 INSERT INTO `portfolios` (`id`, `title`, `subTitle`, `overview`, `publishedTime`, `role`, `linkUrl`, `youtubeUrlId`, `createdTime`, `updatedTime`, `createdBy`, `updatedBy`, `isRemoved`, `category`, `clientName`)
 VALUES
 	(1,'Lookfest 2016','Lala','<h3> Adventure of Sound </h3>\n<p>\n	A visual mapping stage we have created\n</p>\n','2016-10-10','Visual Mapping','instagram Web','XGSy3_Czz8k',NULL,NULL,NULL,NULL,0,'visual',NULL),
-	(3,'Lookfest 2017','Lala','<h3> Adventure of Sound </h3>\n<p>\n A visual mapping stage we have created\n</p>\n','2017-09-25','Bumper','http://fancybox.net/howto','XGSy3_Czz8k',NULL,'2017-09-25 20:58:33',NULL,'admin',0,NULL,'LookAt'),
-	(4,'lala','lala','lala\n','0000-00-00','berita,gambar,baba ,kaka ','lala','','2017-08-17 18:28:22','2017-08-31 23:28:57','admin','admin',0,NULL,NULL),
+	(3,'Lookfest 2017','Lala','Nusa Dua - Menteri Perhubungan RI, Budi Karya Sumadi melakukan pertemuan bilateral dengan Menteri Negara Pertanahan, Infrastruktur, Transportasi dan Pariwisata Jepang, Takao Makino di sela acara Asia-Europe Meeting, Transport Ministers Meeting 2017 (ASEM TMM) di Bali. Pertemuan tersebut membahas dan memastikan tiga proyek terlaksana sesuai jadwal. \"Kami hari ini bertemu dengan Jepang kita membahas 3 proyek yang kita sampaikan ke mereka,\" kata Budi di Ruang Jasmine, di Hotel Westin Resort, Nusa Dua, Bali, Rabu (27/9/2017).','2017-09-25','Bumper','http://fancybox.net/howto','XGSy3_Czz8k',NULL,'2017-09-27 21:17:50',NULL,'admin',0,NULL,'LookAt'),
+	(4,'lala','lala','Nusa Dua - Menteri Perhubungan RI, Budi Karya Sumadi melakukan pertemuan bilateral dengan Menteri Negara Pertanahan, Infrastruktur, Transportasi dan Pariwisata Jepang, Takao Makino di sela acara Asia-Europe Meeting, Transport Ministers Meeting 2017 (ASEM TMM) di Bali. Pertemuan tersebut membahas dan memastikan tiga proyek terlaksana sesuai jadwal. \"Kami hari ini bertemu dengan Jepang kita membahas 3 proyek yang kita sampaikan ke mereka,\" kata Budi di Ruang Jasmine, di Hotel Westin Resort, Nusa Dua, Bali, Rabu (27/9/2017).','0000-00-00','berita,gambar,baba ,kaka ','lala','','2017-08-17 18:28:22','2017-09-27 21:18:31','admin','admin',0,NULL,''),
 	(6,'lala','lala','lala\n','2017-09-17','berita,gambar,baba ,kaka ','lala','','2017-08-17 18:28:22','2017-09-17 14:07:59','admin','admin',0,NULL,'Look You'),
 	(8,'Lookfest 2016','Lala','<h3> Adventure of Sound </h3>\n<p>\n A visual mapping stage we have created\n</p>\n','2016-10-25','Visual Mapping','instagram Web','XGSy3_Czz8k',NULL,'2017-09-17 13:58:44',NULL,'admin',0,'visual',''),
-	(9,'lala','lala','lala\n','2017-09-23','berita,gambar,baba ,kaka ','lala','','2017-08-17 18:28:22','2017-09-17 13:57:51','admin','admin',0,NULL,'Lookats Project');
+	(9,'lala','lala','Nusa Dua - Menteri Perhubungan RI, Budi Karya Sumadi melakukan pertemuan bilateral dengan Menteri Negara Pertanahan, Infrastruktur, Transportasi dan Pariwisata Jepang, Takao Makino di sela acara Asia-Europe Meeting, Transport Ministers Meeting 2017 (ASEM TMM) di Bali. Pertemuan tersebut membahas dan memastikan tiga proyek terlaksana sesuai jadwal.\n\n\"Kami hari ini bertemu dengan Jepang kita membahas 3 proyek yang kita sampaikan ke mereka,\" kata Budi di Ruang Jasmine, di Hotel Westin Resort, Nusa Dua, Bali, Rabu (27/9/2017).','2017-09-23','berita,gambar,baba ,kaka ','lala','','2017-08-17 18:28:22','2017-09-27 20:41:34','admin','admin',0,NULL,'Lookats Project');
 
 /*!40000 ALTER TABLE `portfolios` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -164,7 +193,7 @@ CREATE TABLE `tr_instansi` (
   `alamat_instansi` text NOT NULL,
   `logo_instansi` varchar(100) NOT NULL,
   PRIMARY KEY (`id_instansi`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `tr_instansi` WRITE;
 /*!40000 ALTER TABLE `tr_instansi` DISABLE KEYS */;

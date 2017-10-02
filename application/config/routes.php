@@ -49,6 +49,13 @@ $route['admin/portfolio/delete/(:num)'] = 'Portfolio/delete/$1';
 $route['admin/portfolio/save_edit'] = 'Portfolio/save_edit';
 $route['admin/portfolio/save_add'] = 'Portfolio/save_add';
 
+$route['admin/client'] = 'Client';
+$route['admin/client/add'] = 'Client/add';
+$route['admin/client/edit/(:num)'] = 'Client/edit/$1';
+$route['admin/client/delete/(:num)'] = 'Client/delete/$1';
+$route['admin/client/save_edit'] = 'Client/save_edit';
+$route['admin/client/save_add'] = 'Client/save_add';
+
 $route['image-upload'] = 'DropzoneImageController';
 $route['image-upload/post/(:num)'] = 'DropzoneImageController/proses_upload/$i';
 $route['image-upload/remove'] = 'DropzoneImageController/remove_foto';
