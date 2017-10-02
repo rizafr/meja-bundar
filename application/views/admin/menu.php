@@ -13,7 +13,12 @@
 			<ul class="nav navbar-nav">	
 				<li>
 					<a href="<?php echo base_url(); ?>admin/portfolio">
-						<i class="icon-home icon-white"> </i> Beranda
+						<i class="icon-home icon-white"> </i> Portfolio
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo base_url(); ?>admin/client">
+						<i class="icon-home icon-user"> </i> Client
 					</a>
 				</li>
 			</ul>

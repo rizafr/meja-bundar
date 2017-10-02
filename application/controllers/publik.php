@@ -99,4 +99,21 @@ class Publik extends CI_Controller {
 		]);
 		$this->load->view('publik/_footer');
 	}
+
+	/**
+	 * [client description]
+	 * @return [type] [description]
+	 */
+	public function client() {
+		$instansi = $this->web_model->getDataByID('tr_instansi', 'id_instansi', '1');
+		$clients = $this->web_model->getAll('clients');
+
+		$this->load->view('publik/_header');
+		$this->load->view('publik/_menu');
+		$this->load->view('publik/client', [
+			'instansi' => $instansi,
+			'clients' => $clients
+		]);
+		$this->load->view('publik/_footer');
+	}
 }
